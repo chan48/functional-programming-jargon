@@ -59,7 +59,7 @@ __Table of Contents__
 
 ## Arity
 
-함수가 취하는 인수의 갯수. 단항, 이원, 삼항 등의 단어에서이 단어는 두 개의 접미사 "--ary"와 "--ity"로 구분된다는 구별이 있습니다. 예를 들어, 더하기는 두 개의 인수를 취하므로 이진 함수 또는 2의 arity를 ​​갖는 함수로 정의됩니다. 그러한 기능은 라틴어에서 그리스어로 뿌리를 선호하는 사람들에 의해 때때로 "이력"이라고 불릴 수 있습니다. 비슷하게 변수 개수의 인수를 취하는 함수는 "가변성"이라고 불리는 반면, 2 진 함수는 currying과 부분 적용에도 불구하고 두 개의 인수 만 제공해야합니다 (아래 참조).
+함수가 취하는 인수의 갯수입니다. 단항, 이원, 삼항 등의 단어에서이 단어는 두 개의 접미사 "--ary"와 "--ity"로 구분된다는 구별이 있습니다. 예를 들어, 더하기는 두 개의 인수를 취하므로 이진 함수 또는 2의 arity를 ​​갖는 함수로 정의됩니다. 그러한 기능은 라틴어에서 그리스어로 뿌리를 선호하는 사람들에 의해 때때로 "이력"이라고 불릴 수 있습니다. 비슷하게 변수 개수의 인수를 취하는 함수는 "가변성"이라고 불리는 반면, 2 진 함수는 currying과 부분 적용에도 불구하고 두 개의 인수 만 제공해야합니다 (아래 참조).
 
 ```js
 const sum = (a, b) => a + b
@@ -148,17 +148,17 @@ var addToFive = addTo(5)
 addToFive(3) // returns 8
 ```
 
-이 함수 `addTo()`는 내부적으로 호출 되는 함수를 반환하고 매개 변수 5를 갖는 카레 된 호출로 호출 `add()`된 변수를 저장합니다 `addToFive.`
+`addTo()` 함수는 (내부적으로 add ()라고 불리는) 함수를 반환하며 매개 변수 5를 갖는 curry 호출로 `addToFive`라는 변수에 저장합니다.
 
-이상적으로, 함수 `addTo`가 실행을 끝내면 지역 변수 add, x, y를 사용하여 해당 범위에 액세스 할 수 없어야합니다. 그러나 전화를하면 8을 반환합니다 `addToFive()`. 이것은 `addTo`코드 블록이 실행을 마친 후에도 함수의 상태 가 저장 된다는 것을 의미합니다. 그렇지 않으면 `addTo`호출 된 메소드를 알 수없고 `addTo(5)` x의 값을 5로 설정합니다.
+사실 `addTo` 함수가 실행을 끝내면 그 범위는 지역 변수 add, x, y로 접근 할 수 없어야한다. 그러나 `addToFive()`를 호출하면 8을 반환합니다. 이는 코드 블록이 실행을 마친 후에도 `addTo` 함수의 상태가 저장된다는 것을 의미합니다. 그렇지 않으면 `addTo`가 `addTo(5)`로 호출되고 x 값이 5로 설정되었음을 알 수있는 방법이 없습니다.
 
 어휘 범위 지정은 x 및 add 값 (실행을 완료 한 부모의 개인 변수)을 찾을 수있는 이유입니다. 이 값을 Closure라고합니다.
 
-스택은 함수의 어휘 범위와 함께 부모에 대한 참조 형식으로 저장됩니다. 이렇게하면 클로저와 기본 변수가 가비지 수집되는 것을 방지합니다 (적어도 하나의 라이브 참조가 있으므로).
+스택은 함수의 어휘 범위와 함께 부모에 대한 참조 형식으로 저장됩니다. 이렇게하면 클로저와 기본변수가 가비지 수집되는 것을 방지합니다.(적어도 하나의 라이브 참조가 있으므로)
 
-Lambda Vs Closure : lambda는 기본적으로 함수를 선언하는 표준 방법이 아닌 인라인으로 정의 된 함수입니다. 람다는 종종 객체로 전달 될 수 있습니다.
+Lambda Vs Closure : lambda는 기본적으로 함수를 선언하는 표준 방법이 아닌 인라인으로 정의된 함수입니다. 람다는 종종 객체로 전달 될 수 있습니다.
 
-클로저는 몸의 외부 필드를 참조하여 주변 상태를 둘러싼 함수입니다. 닫힌 상태는 클로저의 호출을 가로 질러 유지됩니다.
+클로저는 몸의 외부 필드를 참조하여 주변상태를 둘러싼 함수입니다. 닫힌상태는 클로저의 호출을 가로질러 유지됩니다.
 
 
 __추가 읽기 / 출처__
@@ -168,7 +168,7 @@ __추가 읽기 / 출처__
 ## Auto Currying
 여러 개의 인수를 취하는 함수를 하나의 인수로 변환하면 올바른 수의 인수보다 작으면 나머지를 취하는 함수가 반환됩니다. 함수가 올바른 수의 인수를 얻으면 평가됩니다.
 
-lodash & Ramda는 이런식으로 작동하는 `curry`함수를 가지고 있습니다 .
+lodash & Ramda는 이런식으로 작동하는 `curry`함수를 가지고 있습니다.
 
 ```js
 const add = (x, y) => x + y
@@ -188,8 +188,8 @@ __추가 읽기__
 하나의 함수의 출력이 다른 함수의 입력 인 제 3의 함수를 형성하기 위해 두 함수를 함께 모으는 행위.
 
 ```js
-const compose = (f, g) => (a) => f(g(a)) // Definition
-const floorAndToString = compose((val) => val.toString(), Math.floor) // Usage
+const compose = (f, g) => (a) => f(g(a)) // 정의
+const floorAndToString = compose((val) => val.toString(), Math.floor) // 사용법
 floorAndToString(121.212121) // '121'
 ```
 
@@ -244,7 +244,7 @@ const greet = () => `Hi, ${window.name}`
 greet() // "Hi, Brianne"
 ```
 
-위 예제의 출력은 함수 외부에 저장된 데이터를 기반으로합니다...
+위 예제의 출력은 함수 외부에 저장된 데이터를 기반으로 합니다...
 
 ```js
 let greeting
@@ -304,13 +304,12 @@ const incrementAll = (numbers) => map(add(1))(numbers)
 // Points-free - The list is an implicit argument
 const incrementAll2 = map(add(1))
 ```
-
-`incrementAll` identifies and uses the parameter `numbers`, so it is not points-free.  `incrementAll2` is written just by combining functions and values, making no mention of its arguments.  It __is__ points-free.
+`incrementAll`은 매개 변수 `numbers`를 사용하고 식별하므로 Point-free합니다. `incrementAll2`는 함수와 값을 결합하여 작성되며 인수에 대해서는 언급하지 않습니다. Point-free합니다.
 
 points-free 함수 정의는 `function` or `=>` 없이 일반적인 할당처럼 보입니다.
 
 ## Predicate
-술어는 주어진 값에 대해 참 또는 거짓을 리턴하는 함수입니다. 술어의 일반적인 사용은 배열 필터의 콜백입니다.
+Predicate는 주어진 값에 대해 참 또는 거짓을 리턴하는 함수입니다. Predicate의 일반적인 사용은 배열 필터의 콜백입니다.
 
 ```js
 const predicate = (a) => a > 2
@@ -336,21 +335,21 @@ addOne('some string') // Contract violated: expected int -> int
 
 ## Category
 
-범주 이론의 범주는 개체와 개체 간의 모폴로지 모음입니다. 프로그래밍에서는 일반적으로 유형이 객체로 작동하고 변형이 기능합니다.
+범주 이론의 범주는 개체와 개체 간의 morphism 모음입니다. 프로그래밍에서는 일반적으로 유형이 객체로 작동하고 변형이 기능합니다.
 
 유효한 카테고리가되기 위해서는 3 가지 규칙이 충족되어야합니다:
 
-1. There must be an identity morphism that maps an object to itself.
-    Where `a` is an object in some category,
-    there must be a function from `a -> a`.
-2. Morphisms must compose.
-    Where `a`, `b`, and `c` are objects in some category,
-    and `f` is a morphism from `a -> b`, and `g` is a morphism from `b -> c`;
-    `g(f(x))` must be equivalent to `(g • f)(x)`.
-3. Composition must be associative
-    `f • (g • h)` is the same as `(f • g) • h`
+1. 객체를 그 자체로 매핑하는 identity morphism이 있어야합니다.
+    `a`가 어떤 카테고리의 객체 인 경우,
+    `a -> a`의 함수가 있어야합니다.
+2. Morphism이 구성되야 합니다.
+    여기서 `a`, `b` 및 `c`는 어떤 범주의 객체이고,
+    `f`는 `a -> b`의 morphism이고 `g`는 `b -> c`의 morphism입니다;
+    `(g • f)(x)`는 `g(f(x))`와 같아야합니다.
+3. 구성은 연관성이 있어야합니다.
+    `f • (g • h)`는 `(f • g) • h`와 같아야합니다.
 
-이 규칙은 매우 추상적 인 수준에서 구성을 관리하기 때문에 카테고리 이론은 사물을 구성하는 새로운 방법을 발견하는 데 큰 도움이됩니다.
+이 규칙은 매우 추상적 인 수준에서 구성을 관리하기 때문에 카테고리 이론은 사물을 구성하는 새로운 방법을 발견하는데 큰 도움이됩니다.
 
 __추가 읽기__
 
@@ -358,7 +357,7 @@ __추가 읽기__
 
 ## Value
 
-변수에 할당 할 수있는 모든 것.
+변수에 할당 할 수있는 모든 것입니다.
 
 ```js
 5
@@ -402,7 +401,7 @@ object.map(compose(f, g)) ≍ object.map(g).map(f)
 
 (임의의 함수 `f`, `g`)
 
-자바 스크립트의 Functor인 `Array`은 두 가지 펑터 규칙을 따릅니다:
+자바 스크립트의 Functor인 `Array`는 두 가지 Functor 규칙을 따릅니다:
 
 ```js
 ;[1, 2, 3].map(x => x) // = [1, 2, 3]
