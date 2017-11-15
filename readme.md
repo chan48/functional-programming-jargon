@@ -212,7 +212,7 @@ addOneAndContinue(2, printAsString) // 'Given 3'
 
 ```js
 const continueProgramWith = (data) => {
-  // Continues program with data
+  // 데이터와 함께 프로그램을 계속 진행한다.
 }
 
 readFileAsync('path/to/file', (err, response) => {
@@ -304,7 +304,7 @@ const incrementAll = (numbers) => map(add(1))(numbers)
 // Points-free - The list is an implicit argument
 const incrementAll2 = map(add(1))
 ```
-`incrementAll`은 매개 변수 `numbers`를 사용하고 식별하므로 Point-free합니다. `incrementAll2`는 함수와 값을 결합하여 작성되며 인수에 대해서는 언급하지 않습니다. Point-free합니다.
+`incrementAll`은 매개 변수 `numbers`를 사용하고 식별하므로 Point-free 하지 않습니다. `incrementAll2`는 함수와 값을 결합하여 작성되며 인수에 대해서는 언급하지 않습니다. Point-free합니다.
 
 points-free 함수 정의는 `function` or `=>` 없이 일반적인 할당처럼 보입니다.
 
@@ -438,7 +438,7 @@ const liftA2 = (f) => (a, b) => a.map(f).ap(b) // note it's `ap` and not `map`.
 
 const mult = a => b => a * b
 
-const liftedMult = liftA2(mult) // this function now works on functors like array
+const liftedMult = liftA2(mult) // 이 함수는 이제 배열과 같은 functor에서 작동합니다.
 
 liftedMult([1, 2], [3]) // [3, 6]
 liftA2(a => b => a + b)([1, 2], [3, 4]) // [4, 5, 5, 6]
@@ -733,13 +733,13 @@ const nameLens = R.lens(
 ```js
 const person = {name: 'Gertrude Blanch'}
 
-// invoke the getter
+// getter를 호출한다.
 R.view(nameLens, person) // 'Gertrude Blanch'
 
-// invoke the setter
+// setter를 호출한다.
 R.set(nameLens, 'Shafi Goldwasser', person) // {name: 'Shafi Goldwasser'}
 
-// run a function on the value in the structure
+// 구조체의 값에 함수를 실행한다.
 R.over(nameLens, uppercase, person) // {name: 'GERTRUDE BLANCH'}
 ```
 
@@ -806,11 +806,11 @@ __추가 읽기__
 
 JavaScript에는 이와 같은 유형이 없지만 `Set`을 사용하여 가장 할 수 있습니다:
 ```js
-// imagine that rather than sets here we have types that can only have these values
+// 여기에는 Set가 아니라 이 값만 가질 수있다고 상상해보세요.
 const bools = new Set([true, false])
 const halfTrue = new Set(['half-true'])
 
-// The weakLogic type contains the sum of the values from bools and halfTrue
+// weakLogic 유형에는 bools과 halfTrue의 값의 sum이 들어 있습니다.
 const weakLogicValues = new Set([...bools, ...halfTrue])
 ```
 
