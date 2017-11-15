@@ -335,7 +335,7 @@ addOne('some string') // Contract violated: expected int -> int
 
 ## Category
 
-범주 이론의 범주는 개체와 개체 간의 morphism 모음입니다. 프로그래밍에서는 일반적으로 유형이 객체로 작동하고 변형이 기능합니다.
+범주 이론의 category는 객체와 객체간의 morphism 모음입니다. 프로그래밍에서는 일반적으로 유형이 객체로 작동하고 변형이 기능합니다.
 
 유효한 카테고리가되기 위해서는 3 가지 규칙이 충족되어야합니다:
 
@@ -357,7 +357,7 @@ __추가 읽기__
 
 ## Value
 
-변수에 할당 할 수있는 모든 것입니다.
+변수에 할당 할 수 있는 모든 것입니다.
 
 ```js
 5
@@ -369,7 +369,7 @@ undefined
 
 ## Constant
 
-한 번 다시 할당 할 수없는 변수입니다.
+한 번 다시 할당할 수 없는 변수입니다.
 
 ```js
 const five = 5
@@ -471,7 +471,7 @@ const greet = () => 'Hello World!'
 
 ## Lambda
 
-값처럼 취급 될 수있는 익명의 함수입니다.
+값처럼 취급 될 수 있는 익명의 함수입니다.
 
 ```js
 ;(function (a) {
@@ -486,7 +486,7 @@ const greet = () => 'Hello World!'
 ;[1, 2].map((a) => a + 1) // [2, 3]
 ```
 
-변수에 람다를 할당 할 수 있습니다.
+변수에 람다를 할당할 수 있습니다.
 
 ```js
 const add1 = (a) => a + 1
@@ -497,7 +497,7 @@ const add1 = (a) => a + 1
 
 ## Lazy evaluation
 
-게으른 평가는 값이 필요할 때까지 표현식 평가를 지연시키는 호출 별 평가 메커니즘입니다. 함수 언어에서는 무한한 목록과 같은 구조가 허용됩니다.이 구조는 명령 순서 지정이 중요한 명령형 언어에서는 일반적으로 사용할 수 없습니다.
+게으른 평가는 값이 필요할 때까지 표현식 평가를 지연시키는 호출 별 평가 메커니즘입니다. 함수 언어에서는 무한한 목록과 같은 구조가 허용됩니다. 이 구조는 명령 순서 지정이 중요한 명령형 언어에서는 일반적으로 사용할 수 없습니다.
 
 ```js
 const rand = function*() {
@@ -559,7 +559,7 @@ compose(foo, identity) ≍ compose(identity, foo) ≍ foo
 ```
 
 ## Monad
-모나드는  [`of`](#pointed-functor)를 가진 객체와  `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
+Monad는  [`of`](#pointed-functor)를 가진 객체와  `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
 
 ```js
 // Implementation
@@ -594,13 +594,13 @@ const CoIdentity = (v) => ({
 })
 ```
 
-Extract takes a value out of a functor.
+Extract은 functor에서 가치를 취합니다.
 
 ```js
 CoIdentity(1).extract() // 1
 ```
 
-Extend runs a function on the comonad. The function should return the same type as the comonad.
+Extend는 comonad에서 함수를 실행합니다. 이 함수는 comonad와 동일한 유형을 반환해야합니다.
 
 ```js
 CoIdentity(1).extend((co) => co.extract() + 1) // CoIdentity(2)
