@@ -92,18 +92,18 @@ filter(is(Number), [0, '1', 2, null]) // [0, 2]
 
 
 ```js
-// Helper to create partially applied functions
-// Takes a function and some arguments
+// 부분적으로 적용된 함수를 만드는 도우미
+// 함수와 몇 가지 인수를 취합니다.
 const partial = (f, ...args) =>
-  // returns a function that takes the rest of the arguments
+  // 나머지 인수를 취하는 함수를 반환합니다.
   (...moreArgs) =>
-    // and calls the original function with all of them
+    // 그리고 모든 함수로 원래 함수를 호출합니다.
     f(...args, ...moreArgs)
 
 // Something to apply
 const add3 = (a, b, c) => a + b + c
 
-// Partially applying `2` and `3` to `add3` gives you a one-argument function
+// `2`와`3`을 부분적으로 `add3`에 적용하면 하나의 인자로 쓸 수 있습니다
 const fivePlus = partial(add3, 2, 3) // (c) => 2 + 3 + c
 
 fivePlus(4) // 9
@@ -150,7 +150,7 @@ addToFive(3) // returns 8
 
 `addTo()` 함수는 (내부적으로 add ()라고 불리는) 함수를 반환하며 매개 변수 5를 갖는 curry 호출로 `addToFive`라는 변수에 저장합니다.
 
-사실 `addTo` 함수가 실행을 끝내면 그 범위는 지역 변수 add, x, y로 접근 할 수 없어야한다. 그러나 `addToFive()`를 호출하면 8을 반환합니다. 이는 코드 블록이 실행을 마친 후에도 `addTo` 함수의 상태가 저장된다는 것을 의미합니다. 그렇지 않으면 `addTo`가 `addTo(5)`로 호출되고 x 값이 5로 설정되었음을 알 수있는 방법이 없습니다.
+사실 `addTo` 함수가 실행을 끝내면 그 범위는 지역 변수 add, x, y로 접근 할 수 없어야합니다. 그러나 `addToFive()`를 호출하면 8을 반환합니다. 이는 코드 블록이 실행을 마친 후에도 `addTo` 함수의 상태가 저장된다는 것을 의미합니다. 그렇지 않으면 `addTo`가 `addTo(5)`로 호출되고 x 값이 5로 설정되었음을 알 수있는 방법이 없습니다.
 
 어휘 범위 지정은 x 및 add 값 (실행을 완료 한 부모의 개인 변수)을 찾을 수있는 이유입니다. 이 값을 Closure라고합니다.
 
@@ -420,7 +420,7 @@ const g = x => x * 2
 ## Pointed Functor
  _임의_ 의 단일 값을 넣는 `of` 함수가 있는 객체입니다 .
 
-ES2015에서  Array를 pointed functor로 만드는 `Array.of`를 추가했다.
+ES2015에서  Array를 pointed functor로 만드는 `Array.of`를 추가했습니다.
 
 ```js
 Array.of(1) // [1]
@@ -814,7 +814,7 @@ const halfTrue = new Set(['half-true'])
 const weakLogicValues = new Set([...bools, ...halfTrue])
 ```
 
-합계 유형은 때때로 합집합 유형, 차별화 된 합집합 또는 태그가 지정된 합집합이라고합니다.
+합계 유형은 때때로 합집합 유형, 차별화 된 합집합 또는 태그가 지정된 합집합이라고 합니다.
 
 JS에는 결합 유형을 정의하고 사용하는 데 도움이되는 [couple](https://github.com/paldepind/union-type) [libraries](https://github.com/puffnfresh/daggy)가 있습니다.
 
@@ -879,7 +879,7 @@ getNestedPrice({}) // None()
 getNestedPrice({item: {foo: 1}}) // None()
 getNestedPrice({item: {price: 9.99}}) // Some(9.99)
 ```
-`Option`은 `Maybe`라고도합니다. `Some`은 때때로 `Just`라고 부릅니다. `None`은 `Nothing`이라고도합니다.
+`Option`은 `Maybe`라고도합니다. `Some`은 때때로 `Just`라고 부릅니다. `None`은 `Nothing`이라고도 합니다.
 
 ## Functional Programming Libraries in JavaScript
 
