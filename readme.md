@@ -4,7 +4,7 @@ FP (Functional Programming)는 많은 이점을 제공하며 결과적으로 인
 
 예제는 JavaScript (ES2015)로 제공됩니다. [Why JavaScript?](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
 
-*This is a [WIP](https://github.com/hemanth/functional-programming-jargon/issues/20); PR을 보내 주시기 바랍니다;)*
+*이것은 [WIP](https://github.com/hemanth/functional-programming-jargon/issues/20)입니다; PR을 보내 주시기 바랍니다;)*
 
 해당되는 경우, 이 문서는 [Fantasy Land spec](https://github.com/fantasyland/fantasy-land)에 정의된 용어를 사용합니다.
 
