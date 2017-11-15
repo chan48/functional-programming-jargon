@@ -97,10 +97,10 @@ filter(is(Number), [0, '1', 2, null]) // [0, 2]
 const partial = (f, ...args) =>
   // 나머지 인수를 취하는 함수를 반환합니다.
   (...moreArgs) =>
-    // 그리고 모든 함수로 원래 함수를 호출합니다.
+    // 그리고 모두 원래 함수를 호출합니다.
     f(...args, ...moreArgs)
 
-// Something to apply
+// 뭔가 적용할 것
 const add3 = (a, b, c) => a + b + c
 
 // `2`와`3`을 부분적으로 `add3`에 적용하면 하나의 인자로 쓸 수 있습니다
@@ -185,7 +185,7 @@ __추가 읽기__
 
 ## Function Composition
 
-하나의 함수의 출력이 다른 함수의 입력 인 제 3의 함수를 형성하기 위해 두 함수를 함께 모으는 행위.
+하나의 함수의 출력이 다른 함수의 입력 인 제 3의 함수를 형성하기 위해 두 함수를 함께 모으는 행위입니다.
 
 ```js
 const compose = (f, g) => (a) => f(g(a)) // 정의
@@ -195,7 +195,7 @@ floorAndToString(121.212121) // '121'
 
 ## Continuation
 
-프로그램의 특정 지점에서 코드의 실행되지 않은 부분을 연속이라고합니다.
+프로그램의 특정 지점에서 코드의 실행되지 않은 부분을 연속이라고 합니다.
 
 ```js
 const printAsString = (num) => console.log(`Given ${num}`)
@@ -361,7 +361,7 @@ __추가 읽기__
 
 ```js
 5
-Object.freeze({name: 'John', age: 30}) // The `freeze` function enforces immutability.
+Object.freeze({name: 'John', age: 30}) // `freeze` 함수는 불변성을 강제합니다.
 ;(a) => a
 ;[1]
 undefined
