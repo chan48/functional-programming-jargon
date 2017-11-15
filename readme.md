@@ -1,6 +1,6 @@
 # Functional Programming Jargon
 
-FP (Functional Programming)는 많은 이점을 제공하며 결과적으로 인기가 높아지고 있습니다. 그러나 각 프로그래밍 패러다임에는 고유 한 특수 용어가 포함되어 있으며 FP도 예외는 아닙니다. 용어집을 제공함으로써 학습 FP를 더 쉽게 만들 수 있기를 바랍니다.
+FP (Functional Programming)는 많은 이점을 제공하며 결과적으로 인기가 높아지고 있습니다. 그러나 각 프로그래밍 패러다임에는 고유 한 특수 용어가 포함되어 있으며 FP도 예외는 아닙니다. 용어집을 제공함으로써 FP 학습을 쉽게하기를 바랍니다.
 
 예제는 JavaScript (ES2015)로 제공됩니다. [Why JavaScript?](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
 
@@ -114,7 +114,7 @@ fivePlus(4) // 9
 ```js
 const add1More = add3.bind(null, 2, 3) // (c) => 2 + 3 + c
 ```
-Partial application을 사용하면 데이터를 보유 할 때 데이터를 만듬으로써보다 복잡한 기능에서 간단한 기능을 작성할 수 있습니다. [Curried](#currying) 함수는 부분적으로 자동 적용됩니다.
+Partial application을 사용하면 데이터를 보유 할 때 데이터를 조작해서 보다 간단한 함수를 작성할 수 있습니다. [Curried](#currying) 함수는 부분적으로 자동 적용됩니다.
 
 ## Currying
 
@@ -148,13 +148,13 @@ var addToFive = addTo(5)
 addToFive(3) // returns 8
 ```
 
-`addTo()` 함수는 (내부적으로 add ()라고 불리는) 함수를 반환하며 매개 변수 5를 갖는 curry 호출로 `addToFive`라는 변수에 저장합니다.
+`addTo()` 함수는 (내부적으로 `add ()`라고 불리는) 함수를 반환하며 매개 변수 5를 갖는 curry 호출로 `addToFive`라는 변수에 저장합니다.
 
-사실 `addTo` 함수가 실행을 끝내면 그 범위는 지역 변수 add, x, y로 접근 할 수 없어야합니다. 그러나 `addToFive()`를 호출하면 8을 반환합니다. 이는 코드 블록이 실행을 마친 후에도 `addTo` 함수의 상태가 저장된다는 것을 의미합니다. 그렇지 않으면 `addTo`가 `addTo(5)`로 호출되고 x 값이 5로 설정되었음을 알 수있는 방법이 없습니다.
+이상적으로 `addTo` 함수가 실행을 끝내면 그 범위는 지역 변수 add, x, y로 접근 할 수 없어야합니다. 그러나 `addToFive()`를 호출하면 8을 반환합니다. 이는 코드 블록이 실행을 마친 후에도 `addTo` 함수의 상태가 저장된다는 것을 의미합니다. 그렇지 않으면 `addTo`가 `addTo(5)`로 호출되고 x 값이 5로 설정되었음을 알 수 있는 방법이 없습니다.
 
 어휘 범위 지정은 x 및 add 값 (실행을 완료 한 부모의 개인 변수)을 찾을 수있는 이유입니다. 이 값을 Closure라고합니다.
 
-스택은 함수의 어휘 범위와 함께 부모에 대한 참조 형식으로 저장됩니다. 이렇게하면 클로저와 기본변수가 가비지 수집되는 것을 방지합니다.(적어도 하나의 라이브 참조가 있으므로)
+스택은 함수의 어휘 범위와 함께 부모에 대한 참조 형식으로 저장됩니다. 이렇게하면 클로저와 기본변수가 가비지 수집이 되는 것을 방지합니다.(적어도 하나의 라이브 참조가 있으므로)
 
 Lambda Vs Closure : lambda는 기본적으로 함수를 선언하는 표준 방법이 아닌 인라인으로 정의된 함수입니다. 람다는 종종 객체로 전달 될 수 있습니다.
 
@@ -185,7 +185,7 @@ __추가 읽기__
 
 ## Function Composition
 
-하나의 함수의 출력이 다른 함수의 입력 인 제 3의 함수를 형성하기 위해 두 함수를 함께 모으는 행위입니다.
+하나의 함수 출력이 다른 함수의 입력인 제 3의 함수를 형성하기 위해 두 함수를 함께 모으는 행위입니다.
 
 ```js
 const compose = (f, g) => (a) => f(g(a)) // 정의
@@ -335,7 +335,7 @@ addOne('some string') // Contract violated: expected int -> int
 
 ## Category
 
-범주 이론의 category는 객체와 객체간의 morphism 모음입니다. 프로그래밍에서는 일반적으로 유형이 객체로 작동하고 변형이 기능합니다.
+범주 이론의 category는 객체와 객체간의 morphism 모음입니다. 프로그래밍에서는 일반적으로 타입이 객체로 작동하고 변형이 기능합니다.
 
 유효한 카테고리가되기 위해서는 3 가지 규칙이 충족되어야합니다:
 
@@ -369,7 +369,7 @@ undefined
 
 ## Constant
 
-한 번 다시 할당할 수 없는 변수입니다.
+한 번 할당하면 다시 할당할 수 없는 변수입니다.
 
 ```js
 const five = 5
@@ -386,7 +386,7 @@ john.age + five === ({name: 'John', age: 30}).age + (5)
 
 ## Functor
 
-`map`은 새 객체를 만들기 위해 객체의 각 값을 실행하는 동안 두 가지 규칙을 준수 하는 함수를 구현하는 객체입니다:
+객체의 각 값을 실행하면서 새로운 객체를 생성하는 동안 `map` 함수를 구현하는 객체는 두 가지 규칙을 따릅니다 :
 
 __신원 보존__
 ```
@@ -430,7 +430,7 @@ Array.of(1) // [1]
 
 Lifting은 값을 가져 와서 [functor](#pointed-functor)와 같은 객체에 넣는 것 입니다. 함수를 [Applicative Functor](#applicative-functor)로 들어 올리면 해당 Functor에도 있는 값에 대해 함수를 적용 할 수 있습니다.
 
-일부 구현에서는 `lift`, `liftA2`라 불리는 함수가 functor에서 함수를 보다 쉽게 실행하도록합니다.
+일부 구현에서는 `lift`, `liftA2`라 불리는 함수가 functor에서 함수를 보다 쉽게 실행하도록 합니다.
 
 
 ```js
@@ -443,7 +443,7 @@ const liftedMult = liftA2(mult) // 이 함수는 이제 배열과 같은 functor
 liftedMult([1, 2], [3]) // [3, 6]
 liftA2(a => b => a + b)([1, 2], [3, 4]) // [4, 5, 5, 6]
 ```
-하나의 인자로 된 함수를 들어 올리고 적용하는 것과 똑같은 일을 `map`합니다.
+하나의 인자로된 함수를 들어 올리고 적용하는 것과 똑같은 일을 `map`합니다.
 
 ```js
 const increment = (x) => x + 1
@@ -453,17 +453,17 @@ lift(increment)([2]) // [3]
 ```
 
 
-## Referential Transparency
+## 참조투명성(Referential Transparency)
 
-프로그램의 동작을 변경하지 않고 값으로 대체 할 수있는 표현식은 참조투명성을 가진다고 합니다.
+프로그램의 동작을 변경하지 않고 값으로 대체 할 수있는 표현식은 참조투명성(Referential Transparency)을 가진다고 합니다.
 
-우리가 greet 함수를 가졌다고 하면:
+우리가 greet 함수를 가졌다고 하면 :
 
 ```js
 const greet = () => 'Hello World!'
 ```
 
-`Hello World!`를 대체할 수 있는 `greet()`는 Referential Transparency입니다.
+`Hello World!`를 대체할 수 있는 `greet()`는 참조투명성(Referential Transparency)입니다.
 
 ##  Equational Reasoning
 
@@ -495,9 +495,9 @@ const add1 = (a) => a + 1
 ## Lambda Calculus
 함수를 사용하여 [universal model of computation](https://en.wikipedia.org/wiki/Lambda_calculus)을 만드는 수학 분야입니다.
 
-## Lazy evaluation
+## 게으른 평가(Lazy evaluation)
 
-게으른 평가는 값이 필요할 때까지 표현식 평가를 지연시키는 호출 별 평가 메커니즘입니다. 함수 언어에서는 무한한 목록과 같은 구조가 허용됩니다. 이 구조는 명령 순서 지정이 중요한 명령형 언어에서는 일반적으로 사용할 수 없습니다.
+게으른 평가(Lazy evaluation)는 값이 필요할 때까지 표현식 평가를 지연시키는 호출 별 평가 메커니즘입니다. 함수 언어에서는 무한한 목록과 같은 구조가 허용됩니다. 이 구조는 명령 순서 지정이 중요한 명령형 언어에서는 일반적으로 사용할 수 없습니다.
 
 ```js
 const rand = function*() {
@@ -514,9 +514,9 @@ randIter.next() // 각 실행마다 임의의 값이 주어지며 필요에 따�
 
 ## Monoid
 
-객체를 같은 유형의 다른 객체와 "결합"하는 기능을 가진 객체입니다.
+객체를 같은 타입의 다른 객체와 "결합"하는 기능을 가진 객체입니다.
 
-하나의 간단한 monoid 는 숫자 추가입니다 :
+하나의 간단한 monoid는 숫자 추가입니다 :
 
 ```js
 1 + 1 // 2
@@ -535,7 +535,7 @@ randIter.next() // 각 실행마다 임의의 값이 주어지며 필요에 따�
 1 + (2 + 3) === (1 + 2) + 3 // true
 ```
 
-배열 연결은 또한 모노 노드를 형성합니다 :
+배열 연결은 또한 monoid를 형성합니다 :
 
 ```js
 ;[1, 2].concat([3, 4]) // [1, 2, 3, 4]
@@ -553,7 +553,7 @@ identity와 compose 함수가 제공되면, 함수 자체는 monoid를 형성합
 const identity = (a) => a
 const compose = (f, g) => (x) => f(g(x))
 ```
-`foo` 하나의 인수를 취하는 함수입니다.
+`foo`는 하나의 인수를 취하는 함수입니다.
 ```
 compose(foo, identity) ≍ compose(identity, foo) ≍ foo
 ```
@@ -562,21 +562,21 @@ compose(foo, identity) ≍ compose(identity, foo) ≍ foo
 Monad는  [`of`](#pointed-functor)를 가진 객체와  `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
 
 ```js
-// Implementation
+// 구현
 Array.prototype.chain = function (f) {
   return this.reduce((acc, it) => acc.concat(f(it)), [])
 }
 
-// Usage
+// 사용법
 Array.of('cat,dog', 'fish,bird').chain((a) => a.split(',')) // ['cat', 'dog', 'fish', 'bird']
 
-// Contrast to map
+// map과 비교
 Array.of('cat,dog', 'fish,bird').map((a) => a.split(',')) // [['cat', 'dog'], ['fish', 'bird']]
 ```
 
-`of`는 다른 함수형 언어에서 `return`이라고도합니다.
+`of`는 다른 함수형 언어에서 `return`이라고도 합니다.
 
-`chain`은 다른 언어에서`flatmap` 과 `bind`라고도합니다.
+`chain`은 다른 언어에서`flatmap` 과 `bind`라고도 합니다.
 
 ## Comonad
 
@@ -594,13 +594,13 @@ const CoIdentity = (v) => ({
 })
 ```
 
-Extract은 functor에서 가치를 취합니다.
+Extract은 functor에서 값을 취합니다.
 
 ```js
 CoIdentity(1).extract() // 1
 ```
 
-Extend는 comonad에서 함수를 실행합니다. 이 함수는 comonad와 동일한 유형을 반환해야합니다.
+Extend는 comonad에서 함수를 실행합니다. 이 함수는 comonad와 동일한 타입을 반환해야 합니다.
 
 ```js
 CoIdentity(1).extend((co) => co.extract() + 1) // CoIdentity(2)
@@ -608,7 +608,7 @@ CoIdentity(1).extend((co) => co.extract() + 1) // CoIdentity(2)
 
 ## Applicative Functor
 
-응용 펑터는`ap` 함수를 가진 객체입니다. `ap`은 객체의 함수를 같은 타입의 다른 객체의 값에 적용합니다.
+Applicative Functor는 `ap` 함수를 가진 객체입니다. `ap`은 객체의 함수를 같은 타입의 다른 객체의 값에 적용합니다.
 
 ```js
 // 구현 
@@ -633,7 +633,7 @@ const add = (x) => (y) => x + y
 const partiallyAppliedAdds = [add].ap(arg1) // [(y) => 1 + y, (y) => 3 + y]
 ```
 
-이것은 결과를 얻기 위해 `ap`라고 부를 수있는 배열을 제공합니다 :
+이것은 결과를 얻기 위해 `ap` 라고 부를 수있는 배열을 제공합니다 :
 
 ```js
 partiallyAppliedAdds.ap(arg2) // [5, 6, 7, 8]
@@ -645,7 +645,7 @@ partiallyAppliedAdds.ap(arg2) // [5, 6, 7, 8]
 
 ### Endomorphism
 
-입력 유형이 출력과 동일한 함수입니다.
+입력 타입이 출력과 동일한 함수입니다.
 
 ```js
 // uppercase :: String -> String
@@ -657,7 +657,7 @@ const decrement = (x) => x - 1
 
 ### Isomorphism
 
-구조적이며 데이터가없는 두 가지 유형의 객체 간 변환 쌍이 손실됩니다.
+구조적으로 자연스럽고 데이터가 손실되지 않는 두 가지 타입 객체간의 변환쌍입니다. 
 
 예를 들어, 2D 좌표는 배열 `[2,3]`또는 객체 `{x: 2, y: 3}`로 저장 될 수 있습니다.
 
@@ -676,7 +676,7 @@ pairToCoords(coordsToPair({x: 1, y: 2})) // {x: 1, y: 2}
 
 ## Setoid
 
-동일한 유형의 다른 객체를 비교하는데 사용할 수있는 `equals`함수가 있는 객체입니다.
+동일한 타입의 다른 객체를 비교하는데 사용할 수 있는 `equals`함수가 있는 객체입니다.
 
 배열을 Setoid로 만듭니다:
 
@@ -700,7 +700,7 @@ Array.prototype.equals = function (arr) {
 
 ## Semigroup
 
-동일한 유형의 다른 객체와 결합하는 `concat` 함수가있는 객체입니다.
+동일한 타입의 다른 객체와 결합하는 `concat` 함수가있는 객체입니다.
 
 ```js
 ;[1].concat([2]) // [1, 2]
@@ -708,7 +708,7 @@ Array.prototype.equals = function (arr) {
 
 ## Foldable
 
-객체를 다른 유형으로 변환 할 수있는 `reduce` 함수가있는 객체입니다.
+객체를 다른 타입으로 변환 할 수있는 `reduce` 함수가있는 객체입니다.
 
 ```js
 const sum = (list) => list.reduce((acc, val) => acc + val, 0)
@@ -766,7 +766,7 @@ R.over(compose(firstLens, nameLens), uppercase, people) // [{'name': 'GERTRUDE B
 
 ## Type Signatures
 
-종종 JavaScript의 함수에는 인수의 유형과 반환 값을 나타내는 주석이 포함됩니다.
+종종 JavaScript의 함수에는 인수의 타입과 반환 값을 나타내는 주석이 포함됩니다.
 
 커뮤니티 전반에 걸쳐 약간의 차이가 있지만 다음 패턴을 자주 따르는 경우가 많습니다:
 
@@ -787,7 +787,7 @@ const increment = (x) => x + 1
 const call = (f) => (x) => f(x)
 ```
 
-`a`,`b`, `c`,`d`는 인수가 어떤 유형이든 될 수 있음을 나타내기 위해 사용됩니다. 다음 버전의 `map`은 어떤 타입의 값을 다른 타입인 `b` 타입으로 변환하는 함수를 취합니다.이 타입은 `a` 타입의 값의 배열이고, `b` 타입의 값의 배열을 반환합니다.
+`a`,`b`, `c`,`d`는 인수가 어떤 타입이든 될 수 있음을 나타내기 위해 사용됩니다. 다음 버전의 `map`은 어떤 타입의 값을 다른 타입인 `b` 타입으로 변환하는 함수를 취합니다.이 타입은 `a` 타입의 값의 배열이고, `b` 타입의 값의 배열을 반환합니다.
 ```js
 // map :: (a -> b) -> [a] -> [b]
 const map = (f) => (list) => list.map(f)
@@ -799,36 +799,36 @@ __추가 읽기__
 * [What is Hindley-Milner?](http://stackoverflow.com/a/399392/22425) on Stack Overflow
 
 ## Algebraic data type
-다른 유형을 조합하여 만든 복합 유형입니다. 대수타입의 두가지 일반적인 클래스는 [sum](#sum-type)과 [product](#product-type)입니다.
+다른 타입을 조합하여 만든 복합 타입입니다. 대수타입의 두가지 일반적인 클래스는 [sum](#sum-type)과 [product](#product-type)입니다.
 
 ### Sum type
-합계 유형은 두 유형의 결합으로 다른 유형으로 결합됩니다. 결과 유형에서 가능한 값의 수는 입력 유형의 합이기 때문에 sum이라고합니다.
+합계 타입은 두 타입의 결합으로 다른 타입으로 결합됩니다. 결과 타입에서 가능한 값의 수는 입력 타입의 합이기 때문에 sum이라고 합니다.
 
-JavaScript에는 이와 같은 유형이 없지만 `Set`을 사용하여 가장 할 수 있습니다:
+JavaScript에는 이와 같은 타입이 없지만 `Set`을 사용하여 가장 할 수 있습니다:
 ```js
 // 여기에는 Set가 아니라 이 값만 가질 수있다고 상상해보세요.
 const bools = new Set([true, false])
 const halfTrue = new Set(['half-true'])
 
-// weakLogic 유형에는 bools과 halfTrue의 값의 sum이 들어 있습니다.
+// weakLogic 타입에는 bools과 halfTrue의 값의 sum이 들어 있습니다.
 const weakLogicValues = new Set([...bools, ...halfTrue])
 ```
 
-합계 유형은 때때로 합집합 유형, 차별화 된 합집합 또는 태그가 지정된 합집합이라고 합니다.
+합계 타입은 때때로 합집합 타입, 차별화 된 합집합 또는 태그가 지정된 합집합이라고 합니다.
 
-JS에는 결합 유형을 정의하고 사용하는 데 도움이되는 [couple](https://github.com/paldepind/union-type) [libraries](https://github.com/puffnfresh/daggy)가 있습니다.
+JS에는 결합 타입을 정의하고 사용하는데 도움이 되는 [couple](https://github.com/paldepind/union-type) [libraries](https://github.com/puffnfresh/daggy)가 있습니다.
 
 Flow의 [union types](https://flow.org/en/docs/types/unions/)과 TypeScript의 [Enums](https://www.typescriptlang.org/docs/handbook/enums.html)이 이와 같은 역할을 합니다.
 
 ### Product type
 
-**Product type**은 유형을 더 잘 알고있는 방식으로 결합합니다.
+**Product type**은 타입을 더 잘 알고있는 방식으로 결합합니다.
 
 ```js
 // point :: (Number, Number) -> {x: Number, y: Number}
 const point = (x, y) => ({ x, y })
 ```
-데이터 구조의 총 가능한 값은 다른 값의 결과이므로 제품이라고합니다. 많은 언어에는 제품 유형의 가장 간단한 형식 인 튜플 유형이 있습니다.
+데이터 구조의 총 가능한 값은 다른 값의 결과이므로 제품이라고합니다. 많은 언어에는 제품 타입의 가장 간단한 형식 인 튜플 타입이 있습니다.
 
 [Set theory](https://en.wikipedia.org/wiki/Set_theory)을 참조하세요.
 
