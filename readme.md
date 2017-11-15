@@ -88,7 +88,7 @@ filter(is(Number), [0, '1', 2, null]) // [0, 2]
 
 ## Partial Application
 
-함수를 부분적으로 적용한다는 것은 인수 중 일부를 원래 함수에 미리 채워서 새 함수를 만드는 것을 의미합니다.
+함수를 부분적으로 적용한다는 것(Partial Application)은 인수 중 일부를 원래 함수에 미리 채워서 새 함수를 만드는 것을 의미합니다.
 
 
 ```js
@@ -137,7 +137,7 @@ add2(10) // 12
 
 ## Closure
 
-클로저는 범위 외부의 변수에 액세스하는 방법입니다. 형식적으로 클로저는 어휘 적으로 범위가 지정된 명명 된 바인딩을 구현하는 기술입니다. 이것은 환경에 함수를 저장하는 방법입니다.
+클로저(Closure)는 범위 외부의 변수에 액세스하는 방법입니다. 형식적으로 클로저는 어휘 적으로 범위가 지정된 명명 된 바인딩을 구현하는 기술입니다. 이것은 환경에 함수를 저장하는 방법입니다.
 
 클로저는 실행이 정의 된 블록 밖으로 이동 한 후에도 함수의 로컬 변수를 액세스 용으로 캡처하는 범위입니다. 즉. 변수가 선언 된 블록이 실행을 마친 후에 범위를 참조 할 수 있습니다.
 
@@ -195,7 +195,7 @@ floorAndToString(121.212121) // '121'
 
 ## Continuation
 
-프로그램의 특정 지점에서 코드의 실행되지 않은 부분을 연속이라고 합니다.
+프로그램의 특정 지점에서 코드의 실행되지 않은 부분을 계속(Continuation)이라고 합니다.
 
 ```js
 const printAsString = (num) => console.log(`Given ${num}`)
@@ -212,7 +212,7 @@ addOneAndContinue(2, printAsString) // 'Given 3'
 
 ```js
 const continueProgramWith = (data) => {
-  // 데이터와 함께 프로그램을 계속 진행한다.
+  // 데이터와 함께 프로그램을 계속한다.
 }
 
 readFileAsync('path/to/file', (err, response) => {
@@ -226,7 +226,7 @@ readFileAsync('path/to/file', (err, response) => {
 
 ## Purity
 
-반환 값이 입력 값에 의해서만 결정되고 부작용이 발생하지 않으면 함수는 순수합니다.
+반환 값이 입력 값에 의해서만 결정되고 부작용이 발생하지 않으면 함수는 순수(Purity)합니다.
 
 ```js
 const greet = (name) => `Hi, ${name}`
@@ -261,7 +261,7 @@ greeting // "Hi, Brianne"
 
 ## Side effects
 
-함수 또는 표현식은 값을 반환하는 것과는 별도로 외부 변경 가능 상태와 상호 작용 (읽기 또는 쓰기)하는 경우 부작용이 있다고합니다.
+함수 또는 표현식은 값을 반환하는 것과는 별도로 외부 변경 가능 상태와 상호 작용 (읽기 또는 쓰기)하는 경우 부작용(Side effects)이 있다고합니다.
 
 ```js
 const differentEveryTime = new Date()
@@ -273,7 +273,7 @@ console.log('IO is a side effect!')
 
 ## Idempotent
 
-함수에 결과를 다시 적용해도 다른 결과가 나오지 않으면 함수는 멱등수입니다.
+함수에 결과를 다시 적용해도 다른 결과가 나오지 않으면 함수는 멱등수(Idempotent)입니다.
 
 ```
 f(f(x)) ≍ f(x)
@@ -309,7 +309,7 @@ const incrementAll2 = map(add(1))
 points-free 함수 정의는 `function` or `=>` 없이 일반적인 할당처럼 보입니다.
 
 ## Predicate
-Predicate는 주어진 값에 대해 참 또는 거짓을 리턴하는 함수입니다. Predicate의 일반적인 사용은 배열 필터의 콜백입니다.
+술부(Predicate)는 주어진 값에 대해 참 또는 거짓을 리턴하는 함수입니다. 술부(Predicate)의 일반적인 사용은 배열 필터의 콜백입니다.
 
 ```js
 const predicate = (a) => a > 2
@@ -318,7 +318,7 @@ const predicate = (a) => a > 2
 ```
 
 ## Contracts
-Contracts은 런타임에 함수 또는 표현식으로부터 행위의 의무 및 보증을 지정합니다. 이것은 함수 또는 표현식의 입력 및 출력에서 예상되는 일련의 규칙으로 작동하며 일반적으로 계약 위반시 오류가 보고됩니다.
+계약(Contracts)은 런타임에 함수 또는 표현식으로부터 행위의 의무 및 보증을 지정합니다. 이것은 함수 또는 표현식의 입력 및 출력에서 예상되는 일련의 규칙으로 작동하며 일반적으로 계약 위반시 오류가 보고됩니다.
 
 ```js
 // Define our contract : int -> int
@@ -335,21 +335,21 @@ addOne('some string') // Contract violated: expected int -> int
 
 ## Category
 
-범주 이론의 category는 객체와 객체간의 morphism 모음입니다. 프로그래밍에서는 일반적으로 타입이 객체로 작동하고 변형이 기능합니다.
+범주 이론의 category는 객체와 객체간의 morphism 모음집입니다. 프로그래밍에서는 일반적으로 타입이 morphism 객체와 함수로 작동합니다.
 
-유효한 카테고리가되기 위해서는 3 가지 규칙이 충족되어야합니다:
+유효한 Category가 되기 위해서는 3 가지 규칙이 충족되어야합니다:
 
 1. 객체를 그 자체로 매핑하는 identity morphism이 있어야합니다.
-    `a`가 어떤 카테고리의 객체 인 경우,
+    `a`가 어떤 Category의 객체 인 경우,
     `a -> a`의 함수가 있어야합니다.
-2. Morphism이 구성되야 합니다.
+2. morphism이 구성되야 합니다.
     여기서 `a`, `b` 및 `c`는 어떤 범주의 객체이고,
     `f`는 `a -> b`의 morphism이고 `g`는 `b -> c`의 morphism입니다;
     `(g • f)(x)`는 `g(f(x))`와 같아야합니다.
 3. 구성은 연관성이 있어야합니다.
     `f • (g • h)`는 `(f • g) • h`와 같아야합니다.
 
-이 규칙은 매우 추상적 인 수준에서 구성을 관리하기 때문에 카테고리 이론은 사물을 구성하는 새로운 방법을 발견하는데 큰 도움이됩니다.
+이 규칙은 매우 추상적 인 수준에서 구성을 관리하기 때문에 Category 이론은 사물을 구성하는 새로운 방법을 발견하는데 큰 도움이 됩니다.
 
 __추가 읽기__
 
