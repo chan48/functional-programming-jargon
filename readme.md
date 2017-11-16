@@ -137,9 +137,9 @@ add2(10) // 12
 
 ## Closure
 
-클로저(Closure)는 범위 외부의 변수에 액세스하는 방법입니다. 형식적으로 클로저는 어휘적으로 범위가 지정된 명명된 바인딩을 구현하는 기술입니다. 이것은 환경에 함수를 저장하는 방법입니다.
+클로저(Closure)는 범위 외부의 변수에 액세스하는 방법입니다. 형식적으로 클로저는 어휘적으로 범위가 지정된 명명된 바인딩을 구현하는 기술입니다. 이것은 환경과 실행코드(함수)를 표현합니다.
 
-클로저는 실행이 정의된 블록 밖으로 이동한 후에도 함수의 로컬변수를 액세스용으로 캡처하는 범위입니다. 즉. 변수가 선언 된 블록이 실행을 마친 후에 범위를 참조할 수 있습니다.
+클로저는 실행이 정의된 블록 밖으로 이동한 후에도 함수의 로컬변수를 액세스용으로 캡처하는 범위입니다. 즉. 변수가 선언된 블록이 실행을 마친 후에 범위를 참조할 수 있습니다.
 
 
 ```js
@@ -273,7 +273,7 @@ console.log('IO is a side effect!')
 
 ## Idempotent
 
-함수에 결과를 다시 적용해도 다른 결과가 나오지 않으면 함수는 멱등수(Idempotent)입니다.
+함수에 결과를 다시 적용해도 다른 결과가 나오지 않으면 함수는 멱등성(Idempotent)을 가집니다.
 
 ```
 f(f(x)) ≍ f(x)
@@ -335,7 +335,7 @@ addOne('some string') // Contract violated: expected int -> int
 
 ## Category
 
-범주 이론의 category는 객체와 객체간의 morphism 모음집입니다. 프로그래밍에서는 일반적으로 타입이 morphism 객체와 함수로 작동합니다.
+범주 이론의 category는 객체와 객체간의 morphism 모음집입니다. 프로그래밍에서 사용하는 category는 일반적으로 타입을 객체로, 함수를 객체 사이의 morphism 으로 가지는 category입니다.
 
 유효한 Category가 되기 위해서는 3 가지 규칙이 충족되어야합니다:
 
@@ -559,7 +559,7 @@ compose(foo, identity) ≍ compose(identity, foo) ≍ foo
 ```
 
 ## Monad
-Monad는  [`of`](#pointed-functor)를 가진 객체와  `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
+Monad 는 어떤 타입과 그 타입에 적용할 수 있는 [`of`](#pointed-functor) 와 `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
 
 ```js
 // 구현
