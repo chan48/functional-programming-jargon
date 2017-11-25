@@ -1,6 +1,6 @@
 # Functional Programming Jargon
 
-FP (Functional Programming)는 많은 이점을 제공하며 결과적으로 인기가 높아지고 있습니다. 그러나 각 프로그래밍 패러다임에는 고유 한 특수 용어가 포함되어 있으며 FP도 예외는 아닙니다. 용어집을 제공함으로써 FP 학습을 쉽게하기를 바랍니다.
+FP (Functional Programming)는 많은 이점을 제공하며 결과적으로 인기가 높아지고 있습니다. 그러나 각 프로그래밍 패러다임에는 고유한 특수 용어가 포함되어 있으며 FP도 예외는 아닙니다. 용어집을 제공함으로써 FP 학습이 쉬워지길 바랍니다.
 
 예제는 JavaScript (ES2015)로 제공됩니다. [Why JavaScript?](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
 
@@ -152,7 +152,7 @@ addToFive(3) // returns 8
 
 이상적으로 `addTo` 함수가 실행을 끝내면 그 범위는 지역 변수 add, x, y로 접근 할 수 없어야합니다. 그러나 `addToFive()`를 호출하면 8을 반환합니다. 이는 코드 블록이 실행을 마친 후에도 `addTo` 함수의 상태가 저장된다는 것을 의미합니다. 그렇지 않으면 `addTo`가 `addTo(5)`로 호출되고 x 값이 5로 설정되었음을 알 수 있는 방법이 없습니다.
 
-어휘 범위 지정은 x 및 add 값 (실행을 완료 한 부모의 개인 변수)을 찾을 수있는 이유입니다. 이 값을 Closure라고합니다.
+어휘 범위 지정은 x 및 add 값 (실행을 완료 한 부모의 개인 변수)을 찾을 수 있는 이유입니다. 이 값을 Closure라고합니다.
 
 스택은 함수의 어휘 범위와 함께 부모에 대한 참조 형식으로 저장됩니다. 이렇게하면 클로저와 기본변수가 가비지 컬렉션 되는 것을 방지합니다.(적어도 하나의 실제 참조가 있으므로)
 
@@ -342,16 +342,16 @@ addOne('some string') // Contract violated: expected int -> int
 유효한 Category가 되기 위해서는 3 가지 규칙이 충족되어야합니다:
 
 1. 객체를 그 자체로 매핑하는 identity morphism이 있어야합니다.
-    `a`가 어떤 Category의 객체 인 경우,
+    `a`가 어떤 Category의 객체인 경우,
     `a -> a`의 함수가 있어야합니다.
-2. morphism이 구성되야 합니다.
+2. morphism이 합성되야 합니다.
     여기서 `a`, `b` 및 `c`는 어떤 범주의 객체이고,
     `f`는 `a -> b`의 morphism이고 `g`는 `b -> c`의 morphism입니다;
     `(g • f)(x)`는 `g(f(x))`와 같아야합니다.
-3. 구성은 연관성이 있어야합니다.
+3. 합성은 연관성이 있어야합니다.
     `f • (g • h)`는 `(f • g) • h`와 같아야합니다.
 
-이 규칙은 매우 추상적인 수준에서 구성을 관리하기 때문에 Category 이론은 사물을 구성하는 새로운 방법을 발견하는데 큰 도움이 됩니다.
+이 규칙은 매우 추상적인 수준에서 합성을 관리하기 때문에 Category 이론은 객체를 합성하는 새로운 방법을 발견하는데 큰 도움이 됩니다.
 
 __추가 읽기__
 
@@ -395,7 +395,7 @@ __신원 보존__
 object.map(x => x) ≍ object
 ```
 
-__작성 가능__
+__합성 가능__
 
 ```
 object.map(compose(f, g)) ≍ object.map(g).map(f)
@@ -532,7 +532,7 @@ randIter.next() // 각 실행마다 임의의 값이 주어지며 필요에 따�
 1 + 0 // 1
 ```
 
-또한 작업 그룹화가 결과 (연관성)에 영향을 미치지 않아야합니다 :
+또한 작업의 그룹화가 결과 (연관성)에 영향을 미치지 않아야합니다 :
 ```js
 1 + (2 + 3) === (1 + 2) + 3 // true
 ```
@@ -561,7 +561,7 @@ compose(foo, identity) ≍ compose(identity, foo) ≍ foo
 ```
 
 ## Monad
-Monad 는 어떤 타입과 그 타입에 적용할 수 있는 [`of`](#pointed-functor) 와 `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
+Monad는 어떤 타입과 그 타입에 적용할 수 있는 [`of`](#pointed-functor) 와 `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
 
 ```js
 // 구현
@@ -745,7 +745,7 @@ R.set(nameLens, 'Shafi Goldwasser', person) // {name: 'Shafi Goldwasser'}
 R.over(nameLens, uppercase, person) // {name: 'GERTRUDE BLANCH'}
 ```
 
-Lens도 구성 가능합니다. 따라서 중첩된 데이터를 쉽게 변경할 수 있습니다.
+Lens도 합성 가능합니다. 따라서 중첩된 데이터를 쉽게 변경할 수 있습니다.
 
 ```js
 // 이 Lens는 비어있지 않은 배열의 첫 번째 항목에 초점을 맞춥니다.
