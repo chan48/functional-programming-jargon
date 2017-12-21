@@ -152,7 +152,7 @@ addToFive(3) // returns 8
 
 이상적으로 `addTo` 함수가 실행을 끝내면 그 범위는 지역 변수 add, x, y로 접근 할 수 없어야합니다. 그러나 `addToFive()`를 호출하면 8을 반환합니다. 이는 코드 블록이 실행을 마친 후에도 `addTo` 함수의 상태가 저장된다는 것을 의미합니다. 그렇지 않으면 `addTo`가 `addTo(5)`로 호출되고 x 값이 5로 설정되었음을 알 수 있는 방법이 없습니다.
 
-어휘 범위 지정은 x 및 add 값 (실행을 완료 한 부모의 개인 변수)을 찾을 수 있는 이유입니다. 이 값을 Closure라고합니다.
+어휘 범위 지정은 x 및 add 값 (실행을 완료한 부모의 개인 변수)을 찾을 수 있는 이유입니다. 이 값을 Closure라고합니다.
 
 스택은 함수의 어휘 범위와 함께 부모에 대한 참조 형식으로 저장됩니다. 이렇게하면 클로저와 기본변수가 가비지 컬렉션 되는 것을 방지합니다.(적어도 하나의 실제 참조가 있으므로)
 
@@ -228,7 +228,7 @@ readFileAsync('path/to/file', (err, response) => {
 
 ## Purity
 
-반환 값이 입력 값에 의해서만 결정되고 부작용이 발생하지 않으면 함수는 순수(Purity)합니다.
+반환 값이 입력 값에 의해서만 결정되고 부수효과가 발생하지 않으면 함수는 순수(Purity)합니다.
 
 ```js
 const greet = (name) => `Hi, ${name}`
@@ -263,7 +263,7 @@ greeting // "Hi, Brianne"
 
 ## Side effects
 
-함수 또는 표현식은 값을 반환하는 것과는 별도로 외부 변경 가능 상태와 상호 작용 (읽기 또는 쓰기)하는 경우 부작용(Side effects)이 있다고합니다.
+함수 또는 표현식은 값을 반환하는 것과는 별도로 외부 변경 가능 상태와 상호 작용 (읽기 또는 쓰기)하는 경우 부수효과(Side effects)가 있다고합니다.
 
 ```js
 const differentEveryTime = new Date()
@@ -291,7 +291,7 @@ sort(sort(sort([2, 1])))
 
 ## Point-Free Style
 
-정의가 사용 된 인수를 명시적으로 식별하지 않는 함수 작성 방식입니다. 이 스타일은 일반적으로 [currying](#currying) 또는 다른 [Higher-Order functions](#higher-order-functions-hof)을 필요로합니다. A.K.A Tacit programming.
+정의가 사용된 인수를 명시적으로 식별하지 않는 함수 작성 방식입니다. 이 스타일은 일반적으로 [currying](#currying) 또는 다른 [Higher-Order functions](#higher-order-functions-hof)을 필요로합니다. A.K.A Tacit programming.
 
 ```js
 // Given
@@ -308,7 +308,7 @@ const incrementAll2 = map(add(1))
 ```
 `incrementAll`은 매개 변수 `numbers`를 사용하고 식별하므로 Point-free 하지 않습니다. `incrementAll2`는 함수와 값을 결합하여 작성되며 인수에 대해서는 언급하지 않습니다. Point-free합니다.
 
-points-free 함수 정의는 `function` or `=>` 없이 일반적인 할당처럼 보입니다.
+points-free 함수 정의는 `function` 또는 `=>` 없이 일반적인 할당처럼 보입니다.
 
 ## Predicate
 술부(Predicate)는 주어진 값에 대해 참 또는 거짓을 리턴하는 함수입니다. 술부(Predicate)의 일반적인 사용은 배열 필터의 콜백입니다.
@@ -436,7 +436,7 @@ Lifting은 값을 가져 와서 [functor](#pointed-functor)와 같은 객체에 
 
 
 ```js
-const liftA2 = (f) => (a, b) => a.map(f).ap(b) // note it's `ap` and not `map`.
+const liftA2 = (f) => (a, b) => a.map(f).ap(b) // 이것은 `ap`이지,`map`이 아니라는 것에 주의하십시오.
 
 const mult = a => b => a * b
 
@@ -445,7 +445,7 @@ const liftedMult = liftA2(mult) // 이 함수는 이제 배열과 같은 functor
 liftedMult([1, 2], [3]) // [3, 6]
 liftA2(a => b => a + b)([1, 2], [3, 4]) // [4, 5, 5, 6]
 ```
-하나의 인자로된 함수를 들어 올리고 적용하는 것과 똑같은 일을 `map`합니다.
+`map`과 같이 하나의 인자를 갖는 함수를 들어 올리고 적용하는 일을 합니다.
 
 ```js
 const increment = (x) => x + 1
@@ -457,7 +457,7 @@ lift(increment)([2]) // [3]
 
 ## Referential Transparency
 
-프로그램의 동작을 변경하지 않고 값으로 대체 할 수있는 표현식은 참조투명성(Referential Transparency)을 가진다고 합니다.
+프로그램의 동작을 변경하지 않고 값으로 대체 할 수 있는 표현식은 참조투명성(Referential Transparency)을 가진다고 합니다.
 
 우리가 greet 함수를 가졌다고 하면 :
 
@@ -469,7 +469,7 @@ const greet = () => 'Hello World!'
 
 ##  Equational Reasoning
 
-응용 프로그램이 표현식으로 구성되어 부작용이 없는 경우 시스템에 대한 진실은 해당 부분에서 파생될 수 있습니다.
+응용 프로그램이 표현식으로 합성되어 부수효과가 없는 경우 시스템에 대한 진실은 해당 부분에서 파생될 수 있습니다.
 
 ## Lambda
 
@@ -561,7 +561,7 @@ compose(foo, identity) ≍ compose(identity, foo) ≍ foo
 ```
 
 ## Monad
-Monad는 어떤 타입과 그 타입에 적용할 수 있는 [`of`](#pointed-functor) 와 `chain` 함수입니다. `chain`은 중첩된 결과를 un-nests하는 것을 제외하고 [`map`](#functor)와 비슷합니다.
+Monad는 어떤 타입과 그 타입에 적용할 수 있는 [`of`](#pointed-functor) 와 `chain` 함수입니다. `chain`은 중첩된 결과를 중첩되지 않게 하는것을 제외하고 [`map`](#functor)와 비슷합니다.
 
 ```js
 // 구현
@@ -582,7 +582,7 @@ Array.of('cat,dog', 'fish,bird').map((a) => a.split(',')) // [['cat', 'dog'], ['
 
 ## Comonad
 
-`extract` 와 `extend` 함수를 가진 객체.
+`extract` 와 `extend` 함수를 가진 객체입니다.
 
 ```js
 const CoIdentity = (v) => ({
@@ -702,7 +702,7 @@ Array.prototype.equals = function (arr) {
 
 ## Semigroup
 
-동일한 타입의 다른 객체와 결합하는 `concat` 함수가있는 객체입니다.
+동일한 타입의 다른 객체와 결합하는 `concat` 함수가 있는 객체입니다.
 
 ```js
 ;[1].concat([2]) // [1, 2]
@@ -710,7 +710,7 @@ Array.prototype.equals = function (arr) {
 
 ## Foldable
 
-객체를 다른 타입으로 변환 할 수있는 `reduce` 함수가있는 객체입니다.
+객체를 다른 타입으로 변환 할 수있는 `reduce` 함수가 있는 객체입니다.
 
 ```js
 const sum = (list) => list.reduce((acc, val) => acc + val, 0)
@@ -758,7 +758,7 @@ const firstLens = R.lens(
 
 const people = [{name: 'Gertrude Blanch'}, {name: 'Shafi Goldwasser'}]
 
-// 당신이 가정할 수도 있겠지만, Lens는 왼쪽에서 오른쪽으로 구성됩니다.
+// 당신이 가정할 수도 있겠지만, Lens는 왼쪽에서 오른쪽으로 합성됩니다.
 R.over(compose(firstLens, nameLens), uppercase, people) // [{'name': 'GERTRUDE BLANCH'}, {'name': 'Shafi Goldwasser'}]
 ```
 
@@ -900,4 +900,4 @@ getNestedPrice({item: {price: 9.99}}) // Some(9.99)
 
 ---
 
-__P.S:__ This repo is successful due to the wonderful [contributions](https://github.com/hemanth/functional-programming-jargon/graphs/contributors)!
+__P.S:__ 이 저장소는 훌륭한 [contributions](https://github.com/hemanth/functional-programming-jargon/graphs/contributors) 덕분에 성공했습니다!
